@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+**/*.out..tfevents..1681936179..DESKTOP-B7THDOS..29296..1
+
+logs/

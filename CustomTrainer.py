@@ -5,7 +5,7 @@ import math as m
 
 class CustomTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
-        labels = inputs.get("Label")
+        labels = inputs.get("labels")
         if labels is not None:
             print('Labels found')
         else:
@@ -22,4 +22,4 @@ class CustomTrainer(Trainer):
         #except AttributeError as err:
         #    N = self.model.config.num_labels
         #    loss = torch.tensor(-m.log(1/N), requires_grad=True)
-        #return (loss, outputs) if return_outputs else loss
+        return (loss, outputs) if return_outputs else loss

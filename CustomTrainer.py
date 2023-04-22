@@ -6,10 +6,6 @@ import math as m
 class CustomTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
         labels = inputs.get("labels")
-        if labels is not None:
-            print('Labels found')
-        else:
-            print(inputs)
         # forward pass
         outputs = model(**inputs)
         logits = outputs.get("logits")
@@ -17,7 +13,6 @@ class CustomTrainer(Trainer):
         loss_fct = torch.nn.CrossEntropyLoss(weight=torch.tensor([1.0, 2.0, 3.0, 4.0]))
         #try:
         loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
-        print(loss)
         #print(loss.backward())
         #except AttributeError as err:
         #    N = self.model.config.num_labels
